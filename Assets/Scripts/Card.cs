@@ -40,9 +40,7 @@ public class Card : MonoBehaviour, IPointerClickHandler
     }
 
     public IEnumerator Fade() {
-
         while (image.color.a >= 0.01f) {
-            Debug.Log("AA");
             image.color = new Color(1, 1, 1, Mathf.Lerp(image.color.a, 0, Time.deltaTime * fadeSpeed));
             yield return new WaitForEndOfFrame();
         }
@@ -53,7 +51,6 @@ public class Card : MonoBehaviour, IPointerClickHandler
         Id = id;
 
         StopCoroutine(Fade());
-        Debug.Log("STOP");
         image.color = new Color(1, 1, 1, 1);
         back.SetActive(true);
     }
